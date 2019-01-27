@@ -1,0 +1,43 @@
+#include <iostream>
+#include<string>
+using namespace std;
+int main() {
+  string alphapet, plaintext, cipher;
+  int option, key;
+  alphapet = "abcdefghijklmnopqrstuvwxyz";
+  cipher   = "xyzabcdefghijklmnopqrstuvw";
+  cout << "Metin sifrelemek icin 1 e sifreyi cozmek icin 2 ye basiniz. ";
+  cin >> option;
+  cout << "Anahtarı giriniz \n";
+  cin >> key;
+
+  cin.ignore();
+  char letter;
+  if (option == 1 && (key == 3)) {
+    cout << "Sifrelemek istediginiz metini giriniz :\n ";
+    getline(cin, plaintext);
+    for (int i = 0; i < plaintext.size(); ++i) {
+      for (int j = 0; j < 26; ++j) {
+        if (plaintext[i] == alphapet[j]) {
+          plaintext[i] = cipher[j];
+          break;
+        }
+      }
+    }
+
+  }
+  if (option == 2) {
+    cout << "Sifreli metini giriniz : \n";
+    getline(cin, plaintext);
+    for (int i = 0; i < plaintext.size(); ++i) {
+      for (int j = 0; j < 26; j++) {
+        if (plaintext[i] == cipher[j]) {
+          plaintext[i] = alphapet[j];
+          break;
+        }
+      }
+    }
+  }
+  cout << plaintext;
+  return 0;
+}
